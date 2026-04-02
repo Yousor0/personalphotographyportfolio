@@ -16,8 +16,7 @@ export default function Header() {
         // Always visible at top
         setHidden(false);
         setPaddingTop(100);
-      }
-      if (latest > prevScrollY.current) {
+      } else if (latest > prevScrollY.current) {
         // Scrolling down
         setHidden(true);
         setPaddingTop(40);
