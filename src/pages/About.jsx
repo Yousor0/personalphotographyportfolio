@@ -28,13 +28,13 @@ export default function About() {
             <div className="flex flex-col gap-5 text-md font-light lg:text-lg max-w-150">
               <p>
                 Andrew is a portrait and graduation photographer based in
-                <strong> Orlando, Florida</strong>. He is a graduate of the{" "}
+                <strong> Orlando, Florida</strong>. He is a graduate from the{" "}
                 <strong>University of Central Florida</strong>, with a B.S. in
                 Digital Media (Web Development).
               </p>
               <p>
                 He primarily works with students and organizations around the
-                Orlando area, with a focus on supporting AAPI organizations and
+                Orlando area with a focus on supporting AAPI organizations and
                 communities. Through his work, he aims to highlight culture,
                 connection, and meaningful moments.
               </p>
