@@ -35,11 +35,11 @@ export default function About() {
               <p>
                 He primarily works with students and organizations around the
                 Orlando area, with a focus on supporting AAPI organizations and
-                communities. Through his work, Andrew aims to highlight culture,
+                communities. Through his work, he aims to highlight culture,
                 connection, and meaningful moments.
               </p>
               <p>
-                Outside of photography, Andrew has experience in graphic design,
+                Outside of photography, he also has experience in graphic design,
                 stage lighting, and development.
               </p>
             </div>
