@@ -10,6 +10,7 @@ export default function Navbar() {
 
   const isLatest = location.pathname === "/latestworks";
   const isGraduation =
+    location.pathname === "/graduation" ||
     location.pathname === "/graduation/groups" ||
     location.pathname === "/graduation/groups";
   const isPeople = location.pathname === "/people";
@@ -155,6 +156,15 @@ export default function Navbar() {
                 className="flex items-center justify-center py-1"
               />
             </div>
+            <div className="px-4">
+              <Button
+                text="book grad shoot!"
+                to="https://docs.google.com/forms/d/e/1FAIpQLSeRcZjfnP7zZpKs8wOQ6QQkZNkYFQtHFR3OkNSg9NgvPG2ktA/viewform"
+                variant={isContact ? "active" : "primary"}
+                className="flex items-center justify-center py-1 bg-neutral-600 text-white"
+                external={true}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -192,12 +202,19 @@ export default function Navbar() {
                 <Button
                   text="SOLOS"
                   to="/graduation/solos"
-                  className="pl-3 pr-6 text-left"
+                  className="pl-3  text-left"
                 />
                 <Button
                   text="GROUPS"
                   to="/graduation/groups"
-                  className="pl-3 pr-6 text-left "
+                  className="pl-3  text-left "
+                />
+                <Button
+                  text="book grad shoot!"
+                  to="https://docs.google.com/forms/d/e/1FAIpQLSeRcZjfnP7zZpKs8wOQ6QQkZNkYFQtHFR3OkNSg9NgvPG2ktA/viewform"
+                  variant={isContact ? "active" : "primary"}
+                  className="pl-3  text-left bg-neutral-600 text-white"
+                  external={true}
                 />
               </motion.div>
             )}

@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import GradSolos from "./pages/Graduation/GradSolos";
 import GradGroups from "./pages/Graduation/GradGroups";
 import GraduationAll from "./pages/Graduation/GraduationAll";
-
+import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
       <Route path="/travel" element={<Travel />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
