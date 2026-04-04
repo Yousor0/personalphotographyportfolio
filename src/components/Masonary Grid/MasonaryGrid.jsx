@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import GridImage from "./GridImage";
 import ImagePreview from "../ImagePreview";
 
@@ -51,13 +51,15 @@ export default function MasonaryGrid({ images }) {
         ))}
       </div>
 
-      {selectedIndex !== null && (
-        <ImagePreview
-          images={images}
-          initialIndex={selectedIndex}
-          onClose={() => setSelectedIndex(null)}
-        />
-      )}
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <ImagePreview
+            images={images}
+            initialIndex={selectedIndex}
+            onClose={() => setSelectedIndex(null)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
