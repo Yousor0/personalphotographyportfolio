@@ -1,8 +1,32 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import AnimatedLetters from "../animations/AnimatedLetters";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-export default function About() {
+export default function Contact() {
+  const [result, setResult] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(e.target);
+    formData.append("access_key", "0e68cbf8-b52d-49c1-82b6-8b574702e55c");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      e.target.reset();
+    } else {
+      setResult("Error");
+    }
+  }
+
   return (
     <div>
       <Header />
@@ -17,32 +41,102 @@ export default function About() {
         </div>
         <div>
           {/* Form Contact*/}
-          <div className="flex flex-col gap-1 ">
+          <div className="flex flex-col gap-3">
             <h1 className="text-4xl">
               <AnimatedLetters
-                text="ABOUT ANDREW"
+                text="GET IN CONTACT WITH ME!"
                 hoverY={-6}
                 className="ease-in-out "
               />
             </h1>
-            <div className="flex flex-col gap-5 text-md font-light lg:text-lg max-w-150">
-              <p>
-                Andrew is a portrait and graduation photographer based in
-                <strong> Orlando, Florida</strong>. He is a graduate of the{" "}
-                <strong>University of Central Florida</strong>, with a B.S. in
-                Digital Media (Web Development).
-              </p>
-              <p>
-                He primarily works with students and organizations around the
-                Orlando area, with a focus on supporting AAPI organizations and
-                communities. Through his work, Andrew aims to highlight culture,
-                connection, and meaningful moments.
-              </p>
-              <p>
-                Outside of photography, Andrew has experience in graphic design,
-                stage lighting, and development.
-              </p>
-            </div>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+              {/* Honeypot for spam protection */}
+              <input type="checkbox" name="botcheck" className="hidden" />
+
+              <div className="flex flex-col ">
+                <span className="text-lg font-medium -mb-1">NAME</span>
+                <div className="flex gap-4 justify-between">
+                  <div className="flex flex-col flex-1">
+                    <label htmlFor="firstName" className="text-xs font-light">
+                      FIRST NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                      className="border bg-white/40 border-neutral-400 px-2 py-1 text-sm focus:outline-1 w-full"
+                    />
+                  </div>
+
+                  <div className="flex flex-col flex-1">
+                    <label htmlFor="lastName" className="text-xs font-light">
+                      LAST NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                      className="border bg-white/40 border-neutral-400 px-2 py-1 text-sm focus:outline-1 w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="subject">SUBJECT</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  className="border bg-white/40 border-neutral-400 px-2 py-1 text-sm focus:outline-1"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="email">EMAIL</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="border bg-white/40 border-neutral-400 px-2 py-1 text-sm focus:outline-1"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="message">MESSAGE</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  className="border bg-white/40 border-neutral-400 px-2 py-1 text-sm focus:outline-1"
+                  rows="6"
+                />
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.01, y: -3 }}
+                type="submit"
+                disabled={result === "Sending...."}
+                className="lowercase text-white bg-neutral-700 hover:bg-neutral-900 w-full block py-1.5 ease-in-out disabled:opacity-50"
+              >
+                {result === "Sending...." ? "sending..." : "submit"}
+              </motion.button>
+
+              {result === "Form Submitted Successfully" && (
+                <p className="text-sm text-green-700">
+                  Message sent! I'll get back to you soon.
+                </p>
+              )}
+              {result === "Error" && (
+                <p className="text-sm text-red-600">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </form>
           </div>
         </div>
       </div>

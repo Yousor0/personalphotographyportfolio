@@ -160,7 +160,7 @@ export default function Navbar() {
               <Button
                 text="book grad shoot!"
                 to="https://docs.google.com/forms/d/e/1FAIpQLSeRcZjfnP7zZpKs8wOQ6QQkZNkYFQtHFR3OkNSg9NgvPG2ktA/viewform"
-                variant={isContact ? "active" : "primary"}
+                variant={isGraduation ? "active" : "primary"}
                 className="flex items-center justify-center py-1 bg-neutral-600 text-white"
                 external={true}
               />
@@ -212,7 +212,7 @@ export default function Navbar() {
                 <Button
                   text="book grad shoot!"
                   to="https://docs.google.com/forms/d/e/1FAIpQLSeRcZjfnP7zZpKs8wOQ6QQkZNkYFQtHFR3OkNSg9NgvPG2ktA/viewform"
-                  variant={isContact ? "active" : "primary"}
+                  variant={isGraduation ? "active" : "primary"}
                   className="pl-3  text-left bg-neutral-600 text-white"
                   external={true}
                 />
