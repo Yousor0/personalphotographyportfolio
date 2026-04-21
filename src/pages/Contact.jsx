@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function Contact() {
+  const VITE_S3_BASE_URL = import.meta.env.VITE_S3_BASE_URL;
+
   const [result, setResult] = useState("");
 
   async function handleSubmit(e) {
@@ -34,7 +36,7 @@ export default function Contact() {
       <div className="grid gap-5 p-5 grid-cols-1 sm:grid-cols-2 md:px-20 xl:px-40 mt-5 items-center -mb-4">
         <div>
           <img
-            src="https://portfolio-images-121638211942-us-east-1-an.s3.us-east-1.amazonaws.com/travel/DSC02288.jpg"
+            src={`${VITE_S3_BASE_URL}/travel/DSC02288.jpg`}
             alt="andrew"
             className="block w-full max-w-full object-contain sm:max-h-120 "
           />
